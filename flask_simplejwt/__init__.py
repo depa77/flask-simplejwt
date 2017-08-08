@@ -1,0 +1,1 @@
+from .flask_simplejwt import SimpleJWT
