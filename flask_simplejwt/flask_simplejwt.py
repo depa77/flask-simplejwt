@@ -58,3 +58,15 @@ class SimpleJWT:
             return decorated_function
 
         return decorator
+
+    def get_jwt_token(self):
+        """
+        Return the encoded JWT token without Realm
+        :return: string - JWT Token
+        """
+        if not request.headers.has_key('Authorization'):
+            return ""
+        auth = request.headers['Authorization'].split()
+        if len(auth) != 2:
+            return ""
+        return auth[1]
